@@ -6,67 +6,152 @@
     <title>Travel Morocco | About Us</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap">
-    <style></style>
+    <style>
+         body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+        .newvibes {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(15, 23, 42, 1)),url("travel morocco1.jpg");
+            background-size: cover;
+            background-position: center;
+            
+        }
+        .fade-in {
+            animation: fadeIn 1.8s ease-in-out;}
+            @keyframes fadeIn {
+                from { opacity: 0;transform:translateY(20px); }
+                to { opacity: 1;transform:translateY(0);}
+            }
+         @media (max-width:767px){
+#mobile-tablet {
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background-color: #0f172a;
+    padding: 20px;
+    border-bottom: 1px solid #1e293b;
+    gap:20px;
+}
+    }
+    </style>
 </head>
 <body>
-    <nav>
-        <span>MOROCCO<span>Travel</span></span>
-    <div>
-        <a href="">Home</a>
-        <a href="">Destinations</a>
-        <a href="">About</a>
-        <a href="">Plan Trip</a>
-        <div>
-            <div>
-               <span>Guest</span>
-               <div>
-                <span>U</span>
+    <nav class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
+        <span class="text-xl font-bold text-red-600">MOROCCO<span class="text-white">Travel</span></span>
+    
+    <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentcolor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+    </button>
+
+
+    <div id="mobile-tablet" class="hidden md:flex flex-wrap gap-4 text-sm font-medium items-center">
+        <a href="Home.html" class="text-gray-300 hover:text-red-500 transition">Home</a>
+        <a href="Destinations.html" class="text-gray-300 hover:text-red-500 transition">Destinations</a>
+        <a href="About.html" class="text-gray-300 hover:text-red-500 transition">About</a>
+        <a href="PlanTrip.html" class="bg-red-600 text-white hover:bg-red-700 transition py-2 px-4 rounded-full">Plan Trip</a>
+
+        <button class="md:hidden flex items-center justify-center gap-2 text-red-500/30 py-2 px-4 rounded-full mt-4 w-100">
+            Logout
+        </button>
+
+        <div div class="relative group ml-6 pl-6 border-l border-gray-800 hidden md:flex">
+            <div class="flex items-center gap-3 cursor-pointer">
+               <span class="text-xs font-medium text-gray-400" id="nav-user-name">Guest</span>
+               <div class="w-8 h-8 rounded-full bg-red-600/20 border border-red-600/20 flex items-center justify-center text-red-500 font-bold text-xs shadow-lg shadow-red-900/20">
+                <span id="user-initial">U</span>
                </div> 
             </div>
-            <div>
-                <div>
-                    <button>
+            <div class="absolute right-0 top-full pt-4 w-48 hidden group-hover:block transition-all duration-300">
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl p-2">
+                    <button class="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-500 hover:bg-red-500/10 rounded-xl transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21c-2.676 0-5.216-.584-7.499-1.882z" />
                         </svg>
-                        Login
+                        Logout
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    </nav>
+    </nav> 
 
-    <header>
-        <div>
-            <h1>
-                About <span>Us</span>
+    <header class="newvibes h-[70vh] flex items-center justify-center text-center text-white px-4">
+        <div class="fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                About <span class="text-red-600">Us</span>
             </h1>
-            <p>More than just a website, it's a journey waiting to be explored.</p>
+            <p class="text-lg md:text-xl opacity-90 text-gray-300 max-w-2xl mx-auto">
+                More than just a website, it's a journey waiting to be explored.
+            </p>
         </div>
     </header>
     <!-- content-->
-    <section>
-        <div>
-            <h2>
+    <section class="content py-20 px-6 max-w-6xl mx-auto space-y-12">
+        <div class="bg-slate-800 border border-slate-700 p-8 rounded-2xl">
+            <h2 class="text-3xl font-bold text-center mb-6">
                 Our Story
             </h2>
-            <p>Born from a passion for travel and a love for Morocco, our platform was created to share the magic of this incredible country with the world. We believe that travel is not just about visiting places, but about experiencing cultures, connecting with people, and creating memories that last a lifetime.</p>
+            <p class="text-gray-300 text-center max-w-3xl mx-auto leading-relaxed">
+                Born from a passion for travel and a love for Morocco, our platform was created to share the magic of this incredible country with the world. We believe that travel is not just about visiting places, but about experiencing cultures, connecting with people, and creating memories that last a lifetime.</p>
         </div>
 
-        <div>
-            <h2>
+       <div class="bg-slate-800 border border-slate-700 p-8 rounded-2xl">
+            <h2 class="text-3xl font-bold text-center mb-6">
                 Our Mission
             </h2>
-            <p>Our mission is to inspire and empower travelers to explore Morocco in a way that is authentic, meaningful, and unforgettable. We strive to provide comprehensive guides, insider tips, and personalized recommendations to help you discover the hidden gems and vibrant culture of Morocco.</p>
+             <p class="text-gray-300 text-center max-w-3xl mx-auto leading-relaxed">
+                Our mission is to inspire and empower travelers to explore Morocco in a way that is authentic, meaningful, and unforgettable. We strive to provide comprehensive guides, insider tips, and personalized recommendations to help you discover the hidden gems and vibrant culture of Morocco.</p>
         </div>
+    </section>
+    <!-- contact section-->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="contact-container bg-slate-800/50 backdrop-blur-md border border-slate-700 p-10 rounded-3xl shadow-2xl">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="space-y-6">
+            <h2 class="text-5xl font-bold">Contact <span class="text-red-600">us</span></h2>
+            <p class="text-gray-400 text-lg leading-relaxed">Let's plan your <span class="text-red-600 font-semibold">Moroccan</span> 
+                journey together. Fill out the form, and our team will get back to you within 24 hours.</p>
+            <div class="pt-8 space-y-4">
+                <div class="flex items-center gap-4 text-gray-300">
+                    <span class="p-3 bg-red-600/10 rounded-lg text-red-500">📍</span>
+                    <span>Marrakech, Morocco</span>
+                </div>
+                <div class="flex items-center gap-4 text-gray-300">
+                    <span class="p-3 bg-red-600/10 rounded-lg text-red-500">📧</span>
+                    <span>contact@travel.ma</span>
+                </div>
+            </div>
+        </div>
+        
+            <form class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-400 ml-1">Full Name</label>
+                            <input type="text" id="userName" required placeholder="Ex: Fatima Jinari" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-red-600 transition-all text-white" minlength="4" maxlength="30">
 
-        <div>
-            <h2>
-                Meet the Team
-            </h2>
-            <p>Our team is made up of passionate travelers, local experts, and dedicated professionals who are committed to making your travel experience in Morocco exceptional. From our content creators to our customer support team, we are here to ensure that your journey is seamless and unforgettable.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-400 ml-1">Email Address</label>
+                            <input type="email" id="userEmail" required placeholder="Ex: fatima.Jin@travel.ma" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-red-600 transition-all text-white" pattern="[a-zA-Z0-9._%+-]+@gmail\.com">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-400 ml-1">Message</label>
+                            <textarea name="message" id="message" placeholder="Write your message here..." class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-red-600 transition-all text-white"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-red-600/20 mt-4">
+                            Send Message
+                        </button>
+            </form>
         </div>
+    </div>
     </section>
 <!--script-->
 </body>

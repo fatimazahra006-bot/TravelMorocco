@@ -6,68 +6,103 @@
     <title>Travel Morocco | Inscription</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap">
-    <style></style>
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            background-image: radial-gradient(circle at top right, #1e293b, #0f172a);
+        }
+        .glass-container{
+            background:#1e293b99;
+            backdrop-filter:blur(20px);
+            border:1px solid #ffffff0d;
+            box-shadow: 0 25px -12px #00000080;
+        }
+        .red-accent{
+            color: #dc2626;
+        }
+        .bg-red-accent{
+            background-color: #dc2626;
+        }
+        .fade-in {
+            animation: fadeIn 1.8s ease forwards;}
+            @keyframes fadeIn {
+                from { opacity: 0;transform:translateY(20px); }
+                to { opacity: 1;transform:translateY(0);}
+            }
+        input{
+            background: #0f172acc;
+            transition: all 0.5s ease;
+        }
+        input:focus{border-color: #dc2626;box-shadow: 0 0 0 2px #dc2626;}
+        
+    </style>
 </head>
-<body>
-    <div>
-        <header>
-            <h1>Premium Plan</h1>
-            <p>Create your explorer profile to start organizing your Moroccan adventure.</p>
+<body class="flex items-center justify-center min-h-screen p-6">
+    <div class="max-w-4xl w-full">
+        <header class="mb-12 text-center fade-in">
+            <h1 class="text-5xl font-bold mb-4 uppercase tracking-tighter">Premium <span class="red-accent">Plan</span></h1>
+            <p class="text-gray-400 text-lg">Create your explorer profile to start organizing your Moroccan adventure.</p>
         </header>
 
-        <div>
-            <div>
-                <div>
-                    <div> 
-                        <span>📍</span> 
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+            <div class="lg:col-span-5 space-y-8 fade-in" style="animation-delay: 0.2s;">
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-accent/10 p-3 rounded-2xl"> 
+                        <span class="text-2xl text-red-600">📍</span> 
                     </div>
                     <div>
-                        <h4></h4>Curated Destinations</h4>
-                        <p>Access hand-picked places across 8 Moroccan cities.</p>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <span>🗺️</span>
-                    </div>
-                    <div>
-                        <h4>Custom Itineraries</h4>
-                        <p>Get personalized trip plans based on your preferences.</p>
+                        <h4 class="font-bold text-white">Curated Destinations</h4>
+                        <p class="text-sm text-gray-500">Access hand-picked places across 8 Moroccan cities.</p>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <span>👥</span>
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-accent/10 p-3 rounded-2xl">
+                        <span class="text-2xl text-red-600">🗺️</span>
                     </div>
                     <div>
-                        <h4>Connect with Fellow Travelers</h4>
-                        <p>Join our community of Moroccan adventure seekers.</p>
+                        <h4 class="font-bold text-white">Custom Itineraries</h4>
+                        <p class="text-sm text-gray-500">Get personalized trip plans based on your preferences.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-accent/10 p-3 rounded-2xl">
+                        <span class="text-2xl text-red-600">👥</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white">Connect with Fellow Travelers</h4>
+                        <p class="text-sm text-gray-500">Join our community of Moroccan adventure seekers.</p>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <div>
-                    <form >
+            <div class="lg:col-span-7 fade-in" style="animation-delay: 0.4s;">
+                <div class="glass-container p-10 rounded-[2.5rem]">
+                    <form class="space-y-6">
                         <div>
-                            <label>Full Name</label>
-                            <input type="text" id="userName" required placeholder="Ex: Fatima Jinari">
+                            <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Full Name</label>
+                            <input type="text" id="userName" required placeholder="Ex: Fatima Jinari" class="w-full mt-2 p-4 rounded-2xl border border-slate-700 text-white outline-none" minlength="4" maxlength="30">
                         </div>
                         <div>
-                            <label>Email Address</label>
-                            <input type="email" id="userEmail" required placeholder="Ex: fatima.Jin@travel.ma">
+                            <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Email Address</label>
+                            <input type="email" id="userEmail" required placeholder="Ex: fatima.Jin@travel.ma" class="w-full mt-2 p-4 rounded-2xl border border-slate-700 text-white outline-none" pattern="[a-zA-Z0-9._%+-]+@gmail\.com">
                         </div>
                         <div>
-                            <label>Password</label>
-                            <input type="password" id="userPassword" required placeholder="Ex: ********">
+                            <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Password</label>
+                            <input type="password" id="userPassword" required placeholder="Ex: ********" class="w-full mt-2 p-4 rounded-2xl border border-slate-700 text-white outline-none" minlength="8">
                         </div>
-                        <button type="submit">Start My Experience</button>
+                        <button type="submit" class="w-full bg-red-accent text-white py-5 rounded-2xl font-bold hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-900/20 transform hover:-translate-y-1">
+                            Start My Experience
+                        </button>
                     </form>
-                    <div>
-                        <p>Already have an account? <a href="">Log in</a></p>
+                    <div class="mt-8 pt-8 border-t border-slate-700/50 text-center">
+                        <p class="text-sm text-gray-500">Already have an account? <a href="\login">Log in</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+</html>
