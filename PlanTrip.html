@@ -4,57 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Morocco | Plan Your Trip</title>
+    <script>
+        if (!localStorage.getItem('moroccoTravel_User')) {
+            window.location.href = 'Inscription.html';
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-            scroll-behavior: smooth;
-        }
-        .glass{
-            background:#1e293b99;
-            backdrop-filter: blur(15px);
-            border:1px solid #ffffff0d;
-        }
-        .red-accent{
-            color: #dc2626;
-        }
-        .bg-red-accent{
-            background-color: #dc2626;
-        }
-        .day-block{
-            border-left:2px dashed #334155;
-            position: relative;
-        }
-        .day-block::before{
-            content:'';
-            position:absolute;
-            left:-9px;
-            top:0;
-            width:16px;
-            height:16px;
-            border-radius: 50%;
-            background: #dc2626;
-            box-shadow: 0 0 10px #dc2626;
-        }
-        .hide-scroll::-webkit-scrollbar{display: none;}
-        .hide-scroll{-ms-overflow-style: none;scrollbar-width: none;}
-    </style>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body class="p-4 md:p-10">
     <div class="max-w-7xl mx-auto">
         <header class="flex flex-col md:flex-row justify-between items-end mb-12 gap-16">
             <div>
-                <h1 class="text-4xl font-bold mb-2 uppercase tracking-tight">Plan <span class="red-accent">Your Trip</span></h1>
+                <h1 class="text-4xl font-bold mb-2 uppercase tracking-tight">Plan <span id="user-welcome" class="red-accent">Your Trip</span></h1>
                 <p class="text-gray-400">Start planning your perfect journey to Morocco with our easy-to-use trip planner.</p>
             </div>
 
             <div class="flex gap-4">
-            <button class="text-xs text-gray-500 hover:text-red-500 transition">Clear Plan</button>
-            <button class="bg-red-accent text-white px-8 py-3 rounded-xl ont-bold hover:bg-red-700 transition shadow-lg shadow-red-900/40">Download PDF Plan</button>
+            <button onclick="clearPlan()" class="text-xs text-gray-500 hover:text-red-500 transition">Clear Plan</button>
+            <button onclick="downloadPDF()" class="bg-red-accent text-white px-8 py-3 rounded-xl ont-bold hover:bg-red-700 transition shadow-lg shadow-red-900/40">Download PDF Plan</button>
             </div>
         </header>
 
@@ -65,7 +35,7 @@
                         <span class="red-accent">🌍</span> Reserved places
                     </h3>
                     <p class="text-xs text-gray-500 mb-6">Select the places you want to include in today's generation.</p>
-                    <div class="space-y-4">
+                    <div id="reserved-list" class="space-y-4">
                         <div class="text-center py-10 text-gray-600 italic">No reservations found.<br>Go to Destinations first.
                         </div>
                     </div>
@@ -73,23 +43,24 @@
             </div>
 
             <div class="lg:col-span-8 space-y-8">
-               <div class="glass p-6 rounded-3xl flex flex-wrap items-center justify-between gap-6">
+                <div class="glass p-6 rounded-3xl flex flex-wrap items-center justify-between gap-6">
                 <div>
                     <h4 class="font-bold">Trip Duration</h4>
                     <p class="text-sm text-gray-400">Select the duration of your trip.</p>
                 </div>
 
                 <div class="flex bg-slate-800 p-1 rounded-2xl border border-slate-700">
-                    <button class="px-6 py-2 rounded-xl text-sm font-bold transition duration-300">2 Days</button>
-                    <button class="px-6 py-2 rounded-xl text-sm font-bold bg-red-accent text-white shadow-lg">3 Days</button>
-                    <button class="px-6 py-2 rounded-xl text-sm font-bold transition duration-300">5 Days</button>
-                    <button class="px-6 py-2 rounded-xl text-sm font-bold transition duration-300">7 Days</button>
+                    <button onclick="updateDays(2)" class="day-btn px-6 py-2 rounded-xl text-sm font-bold transition duration-300">2 Days</button>
+                    <button onclick="updateDays(3)" class="day-btn px-6 py-2 rounded-xl text-sm font-bold bg-red-accent text-white shadow-lg">3 Days</button>
+                    <button onclick="updateDays(5)" class="day-btn px-6 py-2 rounded-xl text-sm font-bold transition duration-300">5 Days</button>
+                    <button onclick="updateDays(7)" class="day-btn px-6 py-2 rounded-xl text-sm font-bold transition duration-300">7 Days</button>
                 </div>
-               </div>
-               
-               <div class="space-y-10 pl-4"><!-- balise vide -->
-               </div>
+                </div>
+
+                <div id="itinerary-days" class="space-y-10 pl-4"><!-- balise vide -->
             </div>
         </div>
     </div>
+    <script src="main-script.js"></script>
 </body>
+</html>

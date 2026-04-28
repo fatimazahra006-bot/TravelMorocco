@@ -1,0 +1,107 @@
+/*style home page */
+body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+            overflow: none;
+        }
+        .newvibes {
+            background: linear-gradient(#000000b3, #0f172a),url("travel morocco1.jpg");
+            background-size: cover;
+            background-position: center;
+            
+        }
+        .fade-in {
+            animation: fadeIn 1.8s forwards;}
+            @keyframes fadeIn {
+                from { opacity: 0;transform:translateY(20px); }
+                to { opacity: 1;transform:translateY(0);}
+            }
+        .place-card{
+            background-color: #1e293b; border: 1px solid #334155;
+        }
+        .place-card:hover{ border-color:#dc2626;}
+        #dynamic-desc{
+            transition: all 0.8s ease-in-out;
+        }
+        .reveal{
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    @media (max-width:767px){
+        #mobile-tablet {
+            display:none;
+            flex-direction:column;
+            position:absolute;
+            top:100%;
+            left:0;
+            width:100%;
+            background-color: #0f172a;
+            padding: 20px;
+            border-bottom: 1px solid #1e293b;
+            gap:20px;
+        }
+        #mobile-tablet.active{  
+            display: flex;
+        }
+    }
+/*style destinations page */
+        .search-input:focus {
+            box-shadow:0 0 15px rgba(220, 38, 38, 0.4);
+        }
+        .tab-btn.active { border-bottom: 3px solid #dc2626; color: #dc2626; font-weight: 600; }
+/*style about page */
+/*style plantrip page */
+        .glass{
+            background:#1e293b99;
+            backdrop-filter: blur(15px);
+            border:1px solid #ffffff0d;
+        }
+        .red-accent{
+            color: #dc2626;
+        }
+        .bg-red-accent{
+            background-color: #dc2626;
+        }
+        .day-block{
+            border-left:2px dashed #334155;
+            position: relative;
+        }
+        .day-block::before{
+            content:'';
+            position:absolute;
+            left:-9px;
+            top:0;
+            width:16px;
+            height:16px;
+            border-radius: 50%;
+            background: #dc2626;
+            box-shadow: 0 0 10px #dc2626;
+        }
+        .hide-scroll::-webkit-scrollbar{display: none;}
+        .hide-scroll{-ms-overflow-style: none;scrollbar-width: none;}
+/*style inscription page */
+.structure{
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            background-image: radial-gradient(circle at top right, #1e293b, #0f172a);
+        }
+        .glass-container{
+            background:#1e293b99;
+            backdrop-filter:blur(20px);
+            border:1px solid #ffffff0d;
+            box-shadow: 0 25px -12px #00000080;
+        }
+        input{
+            background: #0f172acc;
+            transition: all 0.5s ease;
+        }
+        input:focus{border-color: #dc2626;box-shadow: 0 0 0 2px #dc2626;}
+        
