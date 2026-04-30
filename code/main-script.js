@@ -353,9 +353,9 @@ if (regForm) {
     regForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // RÉCUPÉRATION DES VALEURS (Il manquait ces lignes)
-        const name = document.getElementById('userName').value;
-        const email = document.getElementById('userEmail').value; 
+
+        const name = document.getElementById('userName').value.trim();
+        const email = document.getElementById('userEmail').value.trim(); 
         const password = document.getElementById('userPassword').value;
 
         // VALIDATIONS
@@ -364,7 +364,7 @@ if (regForm) {
             return;
         }
 
-        if(!email.match(/[a-zA-Z0-9._%+-]+@gmail\.com/)) {
+        if(!email.match(/^[a-zA-Z0-9._%+-]+@gmail\.com$/)) {
             alert('Please enter a valid Gmail address.');
             return;
         }
@@ -386,4 +386,10 @@ if (regForm) {
             window.location.href = 'Destinations.html'; 
         }, 1200);
     });
+}
+// logout
+function logout() {
+    sessionStorage.clear();
+    localStorage.clear();
+    window.location.href = "Inscription.html";
 }

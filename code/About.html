@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Morocco | About Us</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap">
     <link rel="stylesheet" href="Style.css">
 </head>
@@ -25,7 +26,7 @@
         <a href="About.html" class="text-gray-300 hover:text-red-500 transition">About</a>
         <a href="PlanTrip.html" class="bg-red-600 text-white hover:bg-red-700 transition py-2 px-4 rounded-full">Plan Trip</a>
 
-        <button class="md:hidden flex items-center justify-center gap-2 text-red-500/30 py-2 px-4 rounded-full mt-4 w-100">
+        <button onclick="logout()" class="md:hidden flex items-center justify-center gap-2 text-red-500/30 py-2 px-4 rounded-full mt-4 w-100">
             Logout
         </button>
 
@@ -38,7 +39,7 @@
             </div>
             <div class="absolute right-0 top-full pt-4 w-48 hidden group-hover:block transition-all duration-300">
                 <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl p-2">
-                    <button class="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-500 hover:bg-red-500/10 rounded-xl transition-all">
+                    <button onclick="logout()" class="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-500 hover:bg-red-500/10 rounded-xl transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21c-2.676 0-5.216-.584-7.499-1.882z" />
                         </svg>
@@ -120,6 +121,31 @@
         </div>
     </div>
     </section>
+    <footer class="bg-gray-900 text-gray-300 py-6">
+    <div class="container mx-auto flex justify-center gap-6">
+    <!-- Gmail -->
+    <a href="mailto:TravelMorocco@gmail.com" class="hover:text-red-500 transition">
+        <i class="fas fa-envelope text-2xl"></i>
+    </a>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/212600000000" target="_blank" class="hover:text-green-500 transition">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/1001Paths" target="_blank" class="hover:text-blue-500 transition">
+        <i class="fab fa-facebook-f text-2xl"></i>
+    </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/1001Paths" target="_blank" class="hover:text-pink-500 transition">
+        <i class="fab fa-instagram text-2xl"></i>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/Y1001Paths" target="_blank" class="hover:text-blue-400 transition">
+        <i class="fab fa-linkedin-in text-2xl"></i>
+    </a>
+    </div>
+    <p class="text-center text-sm mt-4"> &copy;2026 Fatima Travel</p>
+    </footer>
 <!--script-->
 <script src="main-script.js"></script>
 </body>
