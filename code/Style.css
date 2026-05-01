@@ -6,19 +6,19 @@ body {
             scroll-behavior: smooth;
             overflow: none;
         }
-        .newvibes {
+        .newvibes { /* l'apparition du site et le theme */
             background: linear-gradient(#000000b3, #0f172a),url("travel morocco1.jpg");
             background-size: cover;
             background-position: center;
             
         }
-        .fade-in {
+        .fade-in { /* animation pour titre a la page */
             animation: fadeIn 1.8s forwards;}
             @keyframes fadeIn {
                 from { opacity: 0;transform:translateY(20px); }
                 to { opacity: 1;transform:translateY(0);}
             }
-        .place-card{
+        .place-card{ /* les cartes dans home page*/
             background-color: #1e293b; border: 1px solid #334155;
         }
         .place-card:hover{ border-color:#dc2626;}
@@ -34,10 +34,10 @@ body {
             opacity: 1;
             transform: translateY(0);
         }
-    @media (max-width:767px){
+    @media (max-width:767px){ /* l'apparition pour les mobiles*/
         #mobile-tablet {
             display:none;
-            flex-direction:column;
+            flex-direction:column; /* Aligne les éléments verticalement */
             position:absolute;
             top:100%;
             left:0;
@@ -60,7 +60,7 @@ body {
 /*style plantrip page */
         .glass{
             background:#1e293b99;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);/* Applique un flou sur l'arrière-plan (effet glassmorphism) */
             border:1px solid #ffffff0d;
         }
         .red-accent{
@@ -73,9 +73,9 @@ body {
             border-left:2px dashed #334155;
             position: relative;
         }
-        .day-block::before{
-            content:'';
-            position:absolute;
+        .day-block::before{ /* Crée un point décoratif (timeline) avant chaque .day-block */
+            content:''; /* élément vide obligatoire pour ::before*/
+            position:absolute; /* positionné par rapport au parent*/
             left:-9px;
             top:0;
             width:16px;
@@ -84,8 +84,8 @@ body {
             background: #dc2626;
             box-shadow: 0 0 10px #dc2626;
         }
-        .hide-scroll::-webkit-scrollbar{display: none;}
-        .hide-scroll{-ms-overflow-style: none;scrollbar-width: none;}
+        .hide-scroll::-webkit-scrollbar{display: none;} /* Cache la barre de défilement (scrollbar) sur les navigateurs WebKit (Chrome, Safari) */
+        .hide-scroll{-ms-overflow-style: none;scrollbar-width: none;} /* Cache la scrollbar sur Internet Explorer et Firefox */
 /*style inscription page */
 .structure{
             font-family: 'Poppins', sans-serif;

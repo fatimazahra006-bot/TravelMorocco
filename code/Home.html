@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Morocco</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script> <!--au lieu d'utilise css plus long j'ai choisi tailwind rapide -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!--pour les icone de insta linkdin whatsapp..-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"> <!--importer des polices depuis google-->
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <nav class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
         <span class="text-3xl font-bold text-red-600">1001 <span class="text-white">Paths</span></span>
     
-    <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
-        <svg class="w-7 h-7" fill="none" stroke="currentcolor" viewbox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+    <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none"> <!--pour les ecrans medium-->
+        <svg class="w-7 h-7" fill="none" stroke="currentcolor" viewbox="0 0 24 24"> <!-- icone menue par svg-->
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path> <!--les lignes de menue-->
         </svg>
     </button>
 
-
-    <div id="mobile-tablet" class="hidden md:flex flex-wrap gap-4 text-base font-medium items-center">
+    <div id="mobile-tablet" class="hidden md:flex flex-wrap gap-4 text-base font-medium items-center"> 
         <a href="Home.html" class="text-gray-300 hover:text-red-500 transition">Home</a>
         <a href="Destinations.html" class="text-gray-300 hover:text-red-500 transition">Destinations</a>
         <a href="About.html" class="text-gray-300 hover:text-red-500 transition">About</a>
@@ -28,13 +27,13 @@
 
         <button onclick="logout()" class="md:hidden flex items-center justify-center gap-2 text-red-500/30 py-2 px-4 rounded-full mt-4 w-100">
             Logout
-        </button>
+        </button> <!-- onclick="logout()" attribut perme d'executer l'action logout par l'appele de la fonction -->
 
-        <div div class="relative group ml-6 pl-6 border-l border-gray-800 hidden md:flex">
-            <div class="flex items-center gap-3 cursor-pointer">
-                <span class="text-xs font-medium text-gray-400" id="nav-user-name">Guest</span>
+        <div class="relative group ml-6 pl-6 border-l border-gray-800 hidden md:flex"> <!--pour large ecran-->
+            <div class="flex items-center gap-3 cursor-pointer"> <!-- balise span pour garder en meme ligne-->
+                <span class="text-xs font-medium text-gray-400" id="nav-user-name">Guest</span> <!--dapres id nav-user-name guest va remplace dynamiquement a le nome d'utilisateur -->
                 <div class="w-8 h-8 rounded-full bg-red-600/20 border border-red-600/20 flex items-center justify-center text-red-500 font-bold text-xs shadow-lg shadow-red-900/20">
-                <span id="user-initial">U</span>
+                <span id="user-initial">U</span> <!-- Affiche l'initiale du nom de l'utilisateur pour l'avatar (par defaut "U", modifiee dynamiquement apres connexion) -->
                 </div> 
             </div>
             <div class="absolute right-0 top-full pt-4 w-48 hidden group-hover:block transition-all duration-300">
@@ -42,7 +41,7 @@
                     <button onclick="logout()" class="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-500 hover:bg-red-500/10 rounded-xl transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21c-2.676 0-5.216-.584-7.499-1.882z" />
-                        </svg>
+                        </svg> <!-- Bouton de deconnexion : declenche la fonction logout() et affiche une icone utilisateur avec style rouge-->
                         Logout
                     </button>
                 </div>
@@ -52,26 +51,26 @@
     </nav> 
 
     <header class="newvibes h-[70vh] flex items-center justify-center text-center text-white px-4">
-        <div class="fade-in">
+        <div class="fade-in"> <!--animmation-->
             <h1 class="text-4xl md:text-6xl font-bold mb-4">
                 Old Tradition, <span class="text-red-600">New Vibes.</span>
             </h1>
             <p class="text-lg md:text-xl opacity-90 text-gray-300 max-w-2xl mx-auto">Explore ancient Medinas and the trandiest rooftop coffes in one, with your family,friends or soulmate.</p>
-        </div>
+        </div> <!-- Texte large pour tous les ecrans, puis taille plus grande a partir des ecrans moyens (md) -->
     </header>
     
-    <section class="content py-20 px-6 max-w-6xl mx-auto">
-        <div class="reveal text-center mb-16 active">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+    <section class="content py-20 px-6 max-w-6xl mx-auto"> <!--en tailwind px padding horizental et py padding vertical-->
+        <div class="reveal text-center mb-16 active"> <!-- Appel de la fonction JavaScript "reveal" pour activer une animation (ex: apparition d’elements) -->
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4"> <!--mobile first => md =>lg =>.../ mb: c'est margin bottom-->
                 What awaits you, <span class="text-red-600">Here?</span>
             </h2>
-            <p id="dynamic-desc" class="text-gray-400 max-w-2xl mx-auto min-h-[60px]">
+            <p id="dynamic-desc" class="text-gray-400 max-w-2xl mx-auto min-h-[60px]"> <!--dynamic-disc pour transition des elements-->
                 This platform offers you an immersive journey through Morocco-exploring vibrant cities like Marrakech, 
                 the blue streets of Chefchaouen, and the northern charm of Tangier. 
                 Discover culture, architecture, flavors, and traditions that make every destination unique.
             </p>
         </div>
-
+        <!--la partie des cartes-->
         <div class="relative max-w-md mx-auto h-[350px]">
             <div class="carousel-card absolute inset-0 place-card p-8 rounded-2xl text-center shadow-lg transition-all duration-1000 opacity-100 z-10 scale-100">
                 <div class="text-4xl mb-6">🌍</div>
@@ -80,9 +79,9 @@
                     From north to south, every step is a new experience.
                 </p>
             </div>
-
+            <!--Systeme de carousel dynamique : gere l’animation des cartes (opacity, scale) et met a jour la description en boucle automatique (acouse les classes dynamic-desc et carousel-card).-->
             <div class="carousel-card absolute inset-0 place-card p-8 rounded-2xl text-center shadow-lg transition-all duration-1000 opacity-0 z-0 scale-95">
-                <div class="text-4xl mb-6">🕌</div>
+                <div class="text-4xl mb-6">🕌</div> <!-- Les cartes sont en position absolute pour occuper tout l’espace du conteneur parent (qui a une position relative) -->
                 <h3 class="text-gray-300 text-2xl font-semibold mb-3">Historic <span class="text-red-500">places</span></h3>
                 <p class="text-gray-400 text-sm leading-relaxed">Timeless places where Moroccan history, culture, and heritage come alive.</p>
             </div>
@@ -94,11 +93,12 @@
             </div>
         </div>
     </section>
+    <!-- footer-->
     <footer class="bg-gray-900 text-gray-300 py-6">
-    <div class="container mx-auto flex justify-center gap-6">
+    <div class="container mx-auto flex justify-center gap-6"> <!-- Utilisation du container Tailwind pour centrer le layout et adapter la largeur automatiquement selon la taille de l’écran -->
     <!-- Gmail -->
     <a href="mailto:TravelMorocco@gmail.com" class="hover:text-red-500 transition">
-        <i class="fas fa-envelope text-2xl"></i>
+        <i class="fas fa-envelope text-2xl"></i> <!-- Utilisation de Font Awesome pour afficher des icones avec une taille definie par Tailwind -->
     </a>
     <!-- WhatsApp -->
     <a href="https://wa.me/212600000000" target="_blank" class="hover:text-green-500 transition">
@@ -119,6 +119,6 @@
     </div>
     <p class="text-center text-sm mt-4"> &copy;2026 Fatima Travel</p>
     </footer>
-    <script src="main-script.js"></script>
+    <script src="main-script.js"></script> <!-- Lien vers le fichier JavaScript principal qui gere les interactions de la page -->
 </body>
 </html>

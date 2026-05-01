@@ -35,7 +35,7 @@
             Logout
         </button>
 
-        <div div class="relative group ml-6 pl-6 border-l border-gray-800 hidden md:flex">
+        <div class="relative group ml-6 pl-6 border-l border-gray-800 hidden md:flex">
             <div class="flex items-center gap-3 cursor-pointer">
             <span class="text-xs font-medium text-gray-400" id="nav-user-name">Guest</span>
             <div class="w-8 h-8 rounded-full bg-red-600/20 border border-red-600/20 flex items-center justify-center text-red-500 font-bold text-xs shadow-lg shadow-red-900/20">
@@ -57,7 +57,7 @@
     </nav>
 
     <header class="h-[60vh] newvibes flex items-center justify-center text-center text-white px-4">
-        <div class="fade-in">
+        <div class="fade-in"> 
             <h1 class="text-4xl md:text-6xl font-bold mb-4">
                 Discover the Magic of<span class="text-red-600"> Morocco</span>
             </h1>
@@ -69,11 +69,10 @@
                 <input 
                 type="text" 
                 id="main-search" 
-                placeholder="Search destinations..." 
                 onkeyup="handlesearch()"
                 aria-label="Search cities"
                 placeholder="Search a city (ex: Marrakech, Tangier...)" 
-                class="search-input w-full py-4 px-6 pr-12 bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl outline-non text-white placeholder-gray-400 transition-all focus:border-red-600">
+                class="search-input w-full py-4 px-6 pr-12 bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl outline-none text-white placeholder-gray-400 transition-all focus:border-red-600">
 
                 <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-red-600 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -83,73 +82,87 @@
             </div>
         </div>
     </header>
-
+    <!-- section pour les destinations-->
     <section class="content py-16 container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-12">Pick Your <span class="text-red-600">Vibe</span></h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div onclick="renderCity('Tanger')" class="group cursor-pointer relative rounded-2xl overflow-hidden h-64 shadow-2xl transition-transform hover:scale-[1.02]">
-                <img src="https://i.pinimg.com/736x/e5/30/53/e53053fab21c30ed070c77fd3089660b.jpg" class="w-full h-full pbject-cover group-hover:scale-110 transition duration-500 brightness-75">
+            <div onclick="renderCity('Tanger')" class="group cursor-pointer relative rounded-2xl overflow-hidden h-64 shadow-2xl transition-transform hover:scale-[1.02]"> <!-- Carte cliquable representant la ville : declenche la fonction renderCity() au clic et affiche une animation hover -->
+                <img src="https://i.pinimg.com/736x/e5/30/53/e53053fab21c30ed070c77fd3089660b.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 brightness-75"> <!-- Reduit la luminosite de l’image pour ameliorer la lisibilite du texte par-dessus-->
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <h3 class="text-white text-3xl font-bold group-hover:text-red-500 transition">Tanger</h3>
+                    <h3 class="text-white text-3xl font-bold group-hover:text-red-500 transition">Tanger</h3> 
                 </div>
             </div>
 
             <div onclick="renderCity('Chefchaouen')" class="group cursor-pointer relative rounded-2xl overflow-hidden h-64 shadow-2xl transition-transform hover:scale-[1.02]">
-                <img src="https://i.pinimg.com/1200x/fb/40/a8/fb40a8cf09bb31ec2e30cfdf04b45b30.jpg" class="w-full h-full pbject-cover group-hover:scale-110 transition duration-500 brightness-75">
+                <img src="https://i.pinimg.com/1200x/fb/40/a8/fb40a8cf09bb31ec2e30cfdf04b45b30.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 brightness-75">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h3 class="text-white text-3xl font-bold group-hover:text-red-500 transition">Chefchaouen</h3>
                 </div>
             </div>
 
             <div onclick="renderCity('Fes')" class="group cursor-pointer relative rounded-2xl overflow-hidden h-64 shadow-2xl transition-transform hover:scale-[1.02]">
-                <img src="https://i.pinimg.com/736x/21/f3/f6/21f3f65b66a60ab7d6a5d1060bf2513d.jpg" class="w-full h-full pbject-cover group-hover:scale-110 transition duration-500 brightness-75">
+                <img src="https://i.pinimg.com/736x/21/f3/f6/21f3f65b66a60ab7d6a5d1060bf2513d.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 brightness-75">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h3 class="text-white text-3xl font-bold group-hover:text-red-500 transition">Fes</h3>
                 </div>
             </div>
 
             <div onclick="renderCity('Ifran')" class="group cursor-pointer relative rounded-2xl overflow-hidden h-64 shadow-2xl transition-transform hover:scale-[1.02]">
-                <img src="https://i.pinimg.com/1200x/b5/41/c3/b541c3fe63d615334cf3d55e4360e086.jpg" class="w-full h-full pbject-cover group-hover:scale-110 transition duration-500 brightness-75">
+                <img src="https://i.pinimg.com/1200x/b5/41/c3/b541c3fe63d615334cf3d55e4360e086.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 brightness-75">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h3 class="text-white text-3xl font-bold group-hover:text-red-500 transition">Ifran</h3>
                 </div>
             </div>
 
             <div onclick="renderCity('Marrakech')" class="group cursor-pointer relative rounded-2xl overflow-hidden h-64 shadow-2xl transition-transform hover:scale-[1.02]">
-                <img src="https://i.pinimg.com/1200x/31/62/b5/3162b56f4dcc5dfca3c420a1360bfa42.jpg" class="w-full h-full pbject-cover group-hover:scale-110 transition duration-500 brightness-75">
+                <img src="https://i.pinimg.com/1200x/31/62/b5/3162b56f4dcc5dfca3c420a1360bfa42.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 brightness-75">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h3 class="text-white text-3xl font-bold group-hover:text-red-500 transition">Marrakech</h3>
                 </div>
             </div>
 
             <div onclick="renderCity('Dakhla')" class="group cursor-pointer relative rounded-2xl overflow-hidden h-64 shadow-2xl transition-transform hover:scale-[1.02]">
-                <img src="https://i.pinimg.com/736x/5a/b6/02/5ab6020240980d2464c6902b64457765.jpg" class="w-full h-full pbject-cover group-hover:scale-110 transition duration-500 brightness-75">
+                <img src="https://i.pinimg.com/736x/5a/b6/02/5ab6020240980d2464c6902b64457765.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 brightness-75">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h3 class="text-white text-3xl font-bold group-hover:text-red-500 transition">Dakhla</h3>
                 </div>
             </div>
         </div>
     </section>
-    <section id="details-section" class="hidden py-12 bg-slate-900 min-h-screen">
-        <div class="container mx-auto px-6">
+    <section id="details-section" class="hidden py-12 bg-slate-900 min-h-screen"> <!-- hidden section  -->
+        <div class="container mx-auto px-6"> <!-- container organise les layout-->
             <div class="flex flex-col md:flex-row justify-between items-center mb-12">
                 <h2 id="city-title" class="text-4xl font-bold mb-4 md:mb-0 text-white">Explore City</h2>
                 <div class="flex space-x-6 border-b border-slate-700">
-                    <button onclick="filterType('Traditional')" class="tab-btn active pb-2 text-gray-400">Traditional</button>
+                    <button onclick="filterType('Traditional')" class="tab-btn active pb-2 text-gray-400">Traditional</button> <!-- afiche les places traditionelle a l'aide du fonction filtertype en js-->
                     <button onclick="filterType('Modern')" class="tab-btn pb-2 text-gray-400">Modern </button>
                 </div>
             </div>
 
             <div id="places-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Conteneur principal qui affiche les cartes des lieux.
+                Utilise une grille responsive :
+                - 1 colonne sur petit écran
+                - 2 colonnes sur écran moyen (md)
+                - 3 colonnes sur grand écran (lg)
+                L'espacement entre les éléments est de 8 (gap-8). -->
                 </div>
         </div>
     </section>
     <div id="reserveModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[100] px-4">
+        <!-- Modal de réservation Identifiée par "reserveModal" pour être contrôlée en JavaScript. Par défaut cachée avec "hidden".
+        elle occupe tout l'écran (fixed inset-0) avec un fond sombre (bg-black/80).
+        Contenu centre (items-center justify-center) avec un z-index eleve (z-[100
+        pour apparaitre au-dessus des autres éléments. -->
         <div class="bg-slate-800 p-8 rounded-3xl max-w-lg w-full relative fade-in border border-slate-700">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-white">×</button>
             <h4 class="text-2xl font-bold mb-2 text-white">Book Your Visit</h4>
-            <p id="modal-item-name" class="text-red-500 mb-6"></p>
-    <form class="space-y-4" id="reservationForm">
+            <p id="modal-item-name" class="text-red-500 mb-6">
+                <!-- Paragraphe utilise dans la modal pour afficher dynamiquement le nom de l'element selectionne.
+            L'id "modal-item-name" permet de le modifier facilement en JavaScriptLe,
+            contenu est vide par defaut et sera rempli dynamiquement. -->
+            </p>
+    <form class="space-y-4" id="reservationForm"> <!--pour les formulaire par js permet gerer la sumission valider les champs ...-->
         <input type="text" id="userName" placeholder="Full Name" required class="w-full p-4 bg-slate-700 border border-slate-600 rounded-xl outline-none focus:ring-2 focus:ring-red-500 text-white placeholder-gray-400">
         <div class="flex space-x-4">
             <input type="date" id="resDate" required class="w-full p-4 bg-slate-700 border border-slate-600 rounded-xl outline-none text-white">
@@ -159,7 +172,7 @@
     </form>
     </div>
     </div>
-    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200] hidden">
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200] hidden"> <!-- par id tost affiche le message de confirmation temporairement a l'aide javascript-->
     <div class="bg-slate-800 border-l-4 border-red-600 shadow-2xl shadow-black/50 px-6 py-4 rounded-xl flex items-center gap-4 fade-in">
         <div class="bg-red-600/20 p-2 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">

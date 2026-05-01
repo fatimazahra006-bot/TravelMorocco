@@ -1,38 +1,46 @@
 // pour tous les pages 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { // Attendre que tout le contenu HTML soit chargé avant d'exécuter le script
     const user = localStorage.getItem('moroccoTravel_User') || 'Explorer';
+    // Récupérer le nom de l'utilisateur depuis le localStorage
+    // Si aucune valeur n'est trouvée, utiliser "Explorer" par défaut
     const navName = document.getElementById('nav-user-name');
+    // Sélectionner les éléments de la barre de navigation
     const navInitial = document.getElementById('user-initial');
+    // Si les éléments existent, mettre à jour leur contenu
     if (navName && navInitial) {
         navName.innerText = user;
         navInitial.innerText = user.charAt(0).toUpperCase();
     }
 
-    
+    // Sélectionner la section principale du contenu
     const targetSection = document.querySelector('.content');
     if (targetSection) {
         setTimeout(() => {
             targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 2000);
     }
-
-
+    // Gestion du menu mobile/tablette
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-tablet");
+    // Si le bouton et le menu existent, ajouter un événement au clic
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener("click", () => {
             mobileMenu.classList.toggle("active");
         });
     }
 });
-function logout() {
+function logout() {// Supprime l'utilisateur du localStorage et redirige vers Inscription.html
     localStorage.removeItem('moroccoTravel_User');
     window.location.href = 'Inscription.html';
 }
 const handleReveal = () => {
     const reveals = document.querySelectorAll(".reveal");
     const isAboutPage = document.getElementById('about-page');
-
+    // Fonction qui active l'animation des éléments .reveal
+// Quand un élément entre dans la zone visible de la fenêtre,
+// on lui ajoute la classe "active". 
+// Si on est sur la page "about-page", la classe est retirée
+// quand l'élément sort de la zone visible.
     reveals.forEach((el) => {
         let windowHeight = window.innerHeight;
         let elementTop = el.getBoundingClientRect().top;
@@ -48,11 +56,11 @@ const handleReveal = () => {
         }
     });
 };
-window.addEventListener("scroll", handleReveal);
-document.addEventListener('DOMContentLoaded', handleReveal);
+window.addEventListener("scroll", handleReveal);// Déclenche l'effet de révélation quand on scroll
+document.addEventListener('DOMContentLoaded', handleReveal);// Exécute une première fois dès que le DOM est prêt
 
 // script home page
-if (document.getElementById('dynamic-desc')) {
+if (document.getElementById('dynamic-desc')) { // Code à exécuter seulement si l'élément existe dans le DOM
     const descriptions = [
         "Discover the true essence of Morocco-from Tangier to Lagouira-where every city tells a story and every tradition holds a secret.",
         "Step into the magic of Moroccan architecture, where intricate tiles and delicate carvings whisper stories of a thousand years.",
@@ -63,7 +71,7 @@ if (document.getElementById('dynamic-desc')) {
     const descElement = document.getElementById("dynamic-desc");
     let currentIdx = 0;
     if (cards.length > 0 && descElement) {
-        
+        // Fonction qui gère la rotation du carrousel
         function rotateContent() {
             cards[currentIdx].classList.remove("opacity-100", "z-10", "scale-100");
             cards[currentIdx].classList.add("opacity-0", "z-0", "scale-95");
@@ -73,7 +81,7 @@ if (document.getElementById('dynamic-desc')) {
 
             setTimeout(() => {
                 currentIdx = (currentIdx + 1) % cards.length;
-                
+                // Mettre à jour le texte de la description
                 descElement.innerText = descriptions[currentIdx];
                 cards[currentIdx].classList.remove("opacity-0", "z-0", "scale-95");
                 cards[currentIdx].classList.add("opacity-100", "z-10", "scale-100");
@@ -82,12 +90,12 @@ if (document.getElementById('dynamic-desc')) {
                 descElement.style.transform = "translateY(0)";
             }, 800);
         }
-        setInterval(rotateContent, 5000);
+        setInterval(rotateContent, 5000); // Lancer la rotation toutes les 5 secondes
     }
 }
 
 // destinations script 
-if (document.getElementById('places-grid')) {
+if (document.getElementById('places-grid')) { // Script de gestion des destinations et réservations
     const destinations={
             "Tanger" : [
                 {name:'Kasbah Museum of Mediterranean Cultures',type:'Traditional',price:'$$',img:'https://i.pinimg.com/736x/70/ee/e7/70eee7227366639edbc7f19e02f84f35.jpg',desc:'Located in the former Sultan’s palace, this museum showcases artifacts, maps, and art from Tangier’s rich history. Entry tickets give access to the palace and gardens.'},
@@ -141,7 +149,7 @@ if (document.getElementById('places-grid')) {
     let currentCity = 'Tanger';
     let currentType = 'Traditional';
 
-    window.renderCity = function(city) {
+    window.renderCity = function(city) { // - renderCity(city): affiche les détails d'une ville et active le filtre
         currentCity = city;
         document.getElementById('details-section').classList.remove('hidden');
         document.getElementById('city-title').innerText = city + ' Highlight';
@@ -149,7 +157,7 @@ if (document.getElementById('places-grid')) {
         window.scrollTo({ top: document.getElementById('details-section').offsetTop - 80, behavior: "smooth" });
     };
 
-    window.filterType = function(type) {
+    window.filterType = function(type) {// - filterType(type): filtre les activités par type (Traditional/Modern)
         currentType = type;
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.classList.toggle('active', btn.innerText.includes(type));
@@ -171,16 +179,63 @@ if (document.getElementById('places-grid')) {
                 </div>`;
         });
     };
-    window.openModal = (name) => {
+    window.openModal = (name) => {// - openModal(name)/closeModal(): gèrent l'ouverture/fermeture du modal de réservation
         document.getElementById('modal-item-name').innerText = name;
         document.getElementById('reserveModal').classList.replace('hidden', 'flex');
     };
     window.closeModal = () => {
         document.getElementById('reserveModal').classList.replace('flex', 'hidden');
     };
+    const form = document.getElementById("reservationForm");
+    if (form) { // - Formulaire: enregistre la réservation dans localStorage (évite doublons)
+        form.onsubmit = function(e) {
+            e.preventDefault();
+
+            const myTrip = JSON.parse(localStorage.getItem('myTrip')) || [];
+            const newItem = {
+                name: document.getElementById("modal-item-name").innerText,
+                city: currentCity,
+                date: document.getElementById("resDate").value,
+                guests: document.getElementById("guests").value
+            };
+
+            const alreadyExists = myTrip.some(item => item.name === newItem.name && item.city === newItem.city);
+
+            if (alreadyExists) {
+                showToast("Oops!", "Already reserved this place ⚠️");
+                closeModal();
+                return;
+            }
+
+            myTrip.push(newItem);
+            localStorage.setItem('myTrip', JSON.stringify(myTrip));
+
+            showToast("Success!", "Reservation confirmed 🎉");
+            closeModal();
+            form.reset();
+        };
+    }
+
+    window.showToast = function(title, message) { // - showToast(title, message): affiche une notification temporaire
+        const toast = document.getElementById('toast');
+        const tTitle = document.getElementById('toast-title');
+        const tMsg = document.getElementById('toast-msg');
+
+        if (toast && tTitle && tMsg) {
+            tTitle.innerText = title;
+            tMsg.innerText = message;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3000);
+        }
+    };
 }
 // script about
-if (document.getElementById('about-page')) {
+if (document.getElementById('about-page')) { // - Section "about-page": ajoute effet de révélation au scroll
     const revealAbout = () => {
         const reveals = document.querySelectorAll(".reveal");
         
@@ -203,13 +258,13 @@ if (document.getElementById('about-page')) {
 
 
 // plan trip script 
-if (document.getElementById('itinerary-days')) {
+if (document.getElementById('itinerary-days')) { // Script de gestion de l’itinéraire
     const welcomeTag = document.getElementById('user-welcome');
     if (welcomeTag) welcomeTag.innerText = (localStorage.getItem('moroccoTravel_User') || 'Your') + "'s Trip";
 
     let tripDuration = 3;
 
-    window.loadReservedPlaces = function() {
+    window.loadReservedPlaces = function() { // - loadReservedPlaces(): charge les réservations depuis localStorage
         const myTrip = JSON.parse(localStorage.getItem('myTrip')) || [];
         const listContainer = document.getElementById('reserved-list');
         if (!listContainer) return;
@@ -221,7 +276,7 @@ if (document.getElementById('itinerary-days')) {
         renderDays();
     };
 
-    window.updateDays = function(num) {
+    window.updateDays = function(num) { // - updateDays(num): met à jour le nombre de jours du voyage
         tripDuration = num;
         document.querySelectorAll('.day-btn').forEach(btn => {
             btn.classList.toggle('bg-red-accent', btn.innerText.includes(num));
@@ -229,7 +284,7 @@ if (document.getElementById('itinerary-days')) {
         renderDays();
     };
 
-    window.renderDays = function() {
+    window.renderDays = function() {  // - renderDays(): répartit les lieux réservés par jour avec slots horaires
         const container = document.getElementById('itinerary-days');
         const selectedPlaces = Array.from(document.querySelectorAll('.place-checkbox:checked'));
         container.innerHTML = "";
@@ -262,7 +317,7 @@ if (document.getElementById('itinerary-days')) {
         `;
         } 
     };
-window.clearPlan = function() {
+    window.clearPlan = function() { // - clearPlan(): vide le plan et réinitialise l’affichage
     localStorage.removeItem('myTrip');
     const listContainer = document.getElementById('reserved-list');
     const itineraryContainer = document.getElementById('itinerary-days');
@@ -272,7 +327,7 @@ window.clearPlan = function() {
     console.log("Trip plan cleared successfully.");
 };
 
-window.downloadPDF = function() {
+window.downloadPDF = function() { // - downloadPDF(): génère un PDF stylisé de l’itinéraire avec jsPDF
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     
@@ -342,18 +397,17 @@ window.downloadPDF = function() {
     doc.setTextColor(71, 85, 105);
     doc.text("Generated by MoroccoTravel App - Your Adventure Awaits", 105, 288, null, null, "center");
 
-    doc.save("My_Morocco_Itinerary.pdf");
+    doc.save("My_Morocco_Itinerary.pdf"); // => Permet de créer, visualiser, modifier et exporter un plan de voyage personnalisé
 };
         loadReservedPlaces();
 }
-
+ // inscription page 
 const regForm = document.getElementById('registerForm');
 
-if (regForm) {
+if (regForm) { // => Gère la validation du formulaire d'inscription (nom, email, mot de passe)
     regForm.addEventListener('submit', function(e) {
         e.preventDefault();
-
-
+        // Récupère la valeur du champ "userName" et supprime les espaces inutiles
         const name = document.getElementById('userName').value.trim();
         const email = document.getElementById('userEmail').value.trim(); 
         const password = document.getElementById('userPassword').value;
